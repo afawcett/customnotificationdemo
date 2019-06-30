@@ -17,7 +17,7 @@ Demo Instructions
 
 - Open the scratch org with ```sfdx force:org:open```
 - Run ```sfdx force:apex:execute``` (without parameters)
-- Past the following sample code in and press the indicated keyboard shortcut to run the code.
+- Paste the following sample code in and press the indicated keyboard shortcut to run the code.
 
 ```
 new CustomNotification()
