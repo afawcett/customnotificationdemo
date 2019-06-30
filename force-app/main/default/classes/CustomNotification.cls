@@ -3,7 +3,7 @@
  *
     new CustomNotification()
         .type('BatchApexError')
-        .title('Batch Error ' + System.today())
+        .title('Batch Error')
         .body('Some useful information')
         .sendToCurrentUser();
  */
