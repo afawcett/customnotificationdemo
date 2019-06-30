@@ -10,7 +10,7 @@ Setup Instructions
 - Update the file ```CustomNotificationTypeIdMap.BatchApexError.md-meta.xml``` with the Id returned by the query.
 - Run ```sfdx force:source:push``` again
 
-**NOTE:** The need to define a Name to Id map for Notification Types is only required when sending Custom Notifications from Flow at time of writing. Process Builder does require this.
+**NOTE:** The need to define a Name to Id map for Notification Types is only required when sending Custom Notifications from Flow at time of writing. Process Builder does not require this.
 
 Demo Instructions
 -----------------
