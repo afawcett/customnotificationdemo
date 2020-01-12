@@ -6,11 +6,7 @@ Setup Instructions
 ------------------
 
 - Deploy to DX scratch org via ```sfdx force:source:push```
-- Run the query ```sfdx force:data:soql:query -q "select id, developername from CustomNotificationType" --usetoolingapi```
-- Update the file ```CustomNotificationTypeIdMap.BatchApexError.md-meta.xml``` with the Id returned by the query.
 - Run ```sfdx force:source:push``` again
-
-**NOTE:** The need to define a Name to Id map for Notification Types is only required when sending Custom Notifications from Flow at time of writing. Process Builder does not require this. If you want to get the Id of the Notification Type in a regular org run ```select id, developername from CustomNotificationType``` from the Developer Console and ensure you to tick the "Use Tooling API" checkbox. 
 
 Demo Instructions
 -----------------
