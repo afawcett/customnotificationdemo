@@ -8,27 +8,9 @@
         <actionName>customNotificationAction</actionName>
         <actionType>customNotificationAction</actionType>
         <inputParameters>
-            <name>customNotifTypeId</name>
-            <value>
-                <elementReference>CustomNotificationTypeId</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
             <name>body</name>
             <value>
                 <elementReference>NotificationBody</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>title</name>
-            <value>
-                <elementReference>NotificationTitle</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientIds</name>
-            <value>
-                <elementReference>RecipientIds</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -38,12 +20,46 @@
             </value>
         </inputParameters>
         <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>RecipientIds</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>CustomNotificationTypeId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
             <name>targetId</name>
             <value>
                 <elementReference>TargetId</elementReference>
             </value>
         </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <elementReference>NotificationTitle</elementReference>
+            </value>
+        </inputParameters>
     </actionCalls>
+    <assignments>
+        <name>Assign_Type_Id</name>
+        <label>Assign Type Id</label>
+        <locationX>298</locationX>
+        <locationY>272</locationY>
+        <assignmentItems>
+            <assignToReference>CustomNotificationTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CustomNotificationType.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>SendCustomNotification</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>CheckForName</name>
         <label>Check for Name</label>
@@ -87,11 +103,11 @@
     <recordLookups>
         <name>QueryIdMap</name>
         <label>Query Id Map</label>
-        <locationX>230</locationX>
-        <locationY>276</locationY>
+        <locationX>132</locationX>
+        <locationY>273</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>SendCustomNotification</targetReference>
+            <targetReference>Assign_Type_Id</targetReference>
         </connector>
         <filters>
             <field>DeveloperName</field>
@@ -100,14 +116,20 @@
                 <elementReference>CustomNotificationTypeName</elementReference>
             </value>
         </filters>
-        <object>CustomNotificationTypeIdMap__mdt</object>
-        <outputAssignments>
-            <assignToReference>CustomNotificationTypeId</assignToReference>
-            <field>CustomNotificationTypeId__c</field>
-        </outputAssignments>
+        <object>CustomNotificationType</object>
+        <outputReference>CustomNotificationType</outputReference>
+        <queriedFields>Id</queriedFields>
     </recordLookups>
     <startElementReference>CheckForName</startElementReference>
     <status>Active</status>
+    <variables>
+        <name>CustomNotificationType</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>CustomNotificationType</objectType>
+    </variables>
     <variables>
         <name>CustomNotificationTypeId</name>
         <dataType>String</dataType>
